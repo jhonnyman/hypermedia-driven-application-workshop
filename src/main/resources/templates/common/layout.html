@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Showcasing hypermedia driven applications based on Quarkus" />
+        <meta name="author" content="João Mendes<joao.mendes@construo.ch>" />
+        <meta
+            name="viewport"
+            content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"
+        />
+        <title>Hypermedia Driven Application Workshop</title>
+        {#bundle /}
+    </head>
+    <body>
+        <div class="layout-wrapper">
+            {#include common/navbar.html /}
+            <main>{#insert}{/insert}</main>
+            {#include common/footer.html /}
+        </div>
+    </body>
+</html>

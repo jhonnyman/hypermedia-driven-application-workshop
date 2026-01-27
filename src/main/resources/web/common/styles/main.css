@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.layout-wrapper {
+    width: 1024px;
+    overflow: auto;
+}
