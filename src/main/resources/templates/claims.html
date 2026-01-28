@@ -1,0 +1,48 @@
+<section class="is-flex is-justify-content-center">
+    <table class="table is-compact is-striped is-hoverable">
+        <thead>
+            <tr>
+                <th>Cause</th>
+                <th>CedentId</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#for claim in claims}
+            <tr id="claim-{claim.id}">
+                <td>{claim.cause}</td>
+                <td>{claim.cedent.name}</td>
+                <td>{claim.amount}</td>
+                <td>{claim.status}</td>
+                <td class="is-flex is-gap-1 is-justify-content-center">
+                    {#if claim.status.editable}
+                    <button
+                        role="button"
+                        class="button is-primary"
+                        hx-patch="lazy/claims/{claim.id}"
+                        hx-vals='{ "status": "PAID" }'
+                        hx-target="closest tr"
+                        hx-swap="outerHTML"
+                        hx-select="#claim-{claim.id}"
+                    >
+                        Pay</button
+                    ><button
+                        role="button"
+                        class="button is-danger"
+                        hx-patch="lazy/claims/{claim.id}"
+                        hx-vals='{ "status": "REJECTED" }'
+                        hx-target="closest tr"
+                        hx-swap="outerHTML"
+                        hx-select="#claim-{claim.id}"
+                    >
+                        Reject
+                    </button>
+                    {#else}✅{/if}
+                </td>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+</section>

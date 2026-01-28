@@ -3,6 +3,12 @@
     <h2>Eager Loading Demo</h2>
     <p>In this example, the page contents are updated with the entire HTML that comes from the server.</p>
 
+    <div>
+        <button class="button is-light" role="button" hx-post="/eager/reset" hx-target="body" hx-swap="outerHTML">
+            Reset Data
+        </button>
+    </div>
+
     <h3>Our Cedents</h3>
     <section class="is-flex is-justify-content-center is-flex-direction-column">
         <table class="table is-striped is-hoverable">

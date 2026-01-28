@@ -68,16 +68,19 @@ public class Database {
     }
 
     public void deleteCedent(String name) {
-        this.cedents = this.cedents.stream().filter(c -> !c.name().equals(name)).toList();
+        this.cedents =
+                new ArrayList<>(this.cedents.stream().filter(c -> !c.name().equals(name)).toList());
         deleteAllCedentClaims(name);
     }
 
     public void deleteAllCedentClaims(String name) {
-        this.claims = this.claims.stream().filter(c -> !c.cedent().name().equals(name)).toList();
+        this.claims = new ArrayList<>(
+                this.claims.stream().filter(c -> !c.cedent().name().equals(name)).toList());
     }
 
     public void deleteClaim(UUID id) {
-        this.claims = this.claims.stream().filter(c -> c.id().equals(id)).toList();
+        this.claims =
+                new ArrayList<>(this.claims.stream().filter(c -> !c.id().equals(id)).toList());
     }
 
     public Optional<Claim> getClaim(UUID claimId) {
@@ -85,11 +88,11 @@ public class Database {
     }
 
     public void updateClaim(Claim claim) {
-        this.claims = this.claims.stream().map(c -> {
+        this.claims = new ArrayList<>(this.claims.stream().map(c -> {
             if (c.id().equals(claim.id())) {
                 return claim;
             }
             return c;
-        }).toList();
+        }).toList());
     }
 }

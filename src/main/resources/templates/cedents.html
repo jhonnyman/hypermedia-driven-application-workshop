@@ -1,0 +1,43 @@
+<section class="is-flex is-justify-content-center is-flex-direction-column">
+    <table class="table is-striped is-hoverable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {#for cedent in cedents}
+            <tr>
+                <td>{cedent.name}</td>
+                <td>
+                    <button
+                        role="button"
+                        class="button is-danger"
+                        hx-delete="lazy/cedents/{cedent.name}"
+                        hx-target="closest tr"
+                        hx-swap="delete"
+                    >
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+    <form hx-post="lazy/cedents" hx-target="closest section" hx-swap="outerHtml">
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">New Cedent</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input id="new-cedent-name" class="input" name="name" size="20" required aria-required="true" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

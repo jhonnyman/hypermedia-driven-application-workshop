@@ -1,9 +1,35 @@
 {#include common/layout.html}
-<section class="content">
+<section class="content has-text-centered m-5">
     <h2>Lazy Loading Demo</h2>
     <p>
         In this example, there are multiple components loading asynchronously and having complete ownership of their
         implementations.
     </p>
+
+    <div>
+        <button class="button is-light" role="button" hx-post="/lazy/reset" hx-target="body" hx-swap="outerHTML">
+            Reset Data
+        </button>
+    </div>
+
+    <h3>Our Cedents</h3>
+    <section
+        hx-get="/lazy/cedents"
+        hx-trigger="load"
+        hx-swap="outerHTML"
+        hx-target="this"
+        hx-indicator="#cedents-loader"
+    >
+        <div class="is-flex is-justify-content-center">
+            <span id="cedents-loader" class="loader htmx-indicator"></span>
+        </div>
+    </section>
+
+    <h3>Claims published</h3>
+    <section hx-get="/lazy/claims" hx-trigger="load" hx-swap="outerHTML" hx-target="this" hx-indicator="#claims-loader">
+        <div class="is-flex is-justify-content-center">
+            <span id="claims-loader" class="loader htmx-indicator"></span>
+        </div>
+    </section>
 </section>
 {/include}

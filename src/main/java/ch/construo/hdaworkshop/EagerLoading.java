@@ -72,4 +72,15 @@ public class EagerLoading extends BaseView {
         return eagerTemplate.instance().data("cedents", database.listAllCedents()).data("claims",
                 database.listAllClaims());
     }
+
+    @Path("/reset")
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance resetData() {
+        database.generateDummyData();
+
+        return eagerTemplate.instance().data("cedents", database.listAllCedents()).data("claims",
+                database.listAllClaims());
+    }
 }
