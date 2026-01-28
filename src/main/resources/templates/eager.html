@@ -11,7 +11,7 @@
 
     <h3>Our Cedents</h3>
     <section class="is-flex is-justify-content-center is-flex-direction-column">
-        <table class="table is-striped is-hoverable">
+        <table id="cedent-table" class="table is-striped is-hoverable">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -30,6 +30,7 @@
                             hx-delete="eager/cedents/{cedent.name}"
                             hx-target="body"
                             hx-swap="outerHtml"
+                            data-testid="delete-{cedent.name}"
                         >
                             Delete
                         </button>
