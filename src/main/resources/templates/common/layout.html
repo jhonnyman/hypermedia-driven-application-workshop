@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content="Showcasing hypermedia driven applications based on Quarkus" />
@@ -8,10 +8,12 @@
             name="viewport"
             content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"
         />
+        <meta name="htmx-config" content='{ "withCredentials": true, "Accept": "text/html, application/xhtml+xml" }' />
+        <link href="static/img/favicon.png" rel="icon" type="image/x-icon" />
         <title>Hypermedia Driven Application Workshop</title>
         {#bundle /}
     </head>
-    <body>
+    <body hx-ext="debug" hx-boost="true">
         <div class="layout-wrapper">
             {#include common/navbar.html /}
             <main>{#insert}{/insert}</main>

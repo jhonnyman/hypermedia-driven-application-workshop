@@ -1,7 +1,7 @@
 package ch.construo.hdaworkshop.dto;
 
 public enum ClaimStatus {
-    OPEN(true), REJECTED(false), PAYED(false);
+    OPEN(true), REJECTED(false), PAID(false);
 
     private final boolean editable;
 
