@@ -16,7 +16,7 @@ import io.quarkus.test.junit.QuarkusTest;
 
 @WithPlaywright
 @QuarkusTest
-public class EagerLoadingTest {
+class EagerLoadingTest {
 
     @InjectPlaywright
     BrowserContext context;

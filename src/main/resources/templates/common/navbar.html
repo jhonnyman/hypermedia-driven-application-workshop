@@ -4,7 +4,14 @@
             ><img src="/static/img/construo.png" height="24px" width="auto" alt="Construo" />
             <span>HDA Workshop</span></a
         >
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+            hx-on:click="this.classList.toggle('is-active');document.getElementById('navbarBasicExample')?.classList?.toggle('is-active');"
+        >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
