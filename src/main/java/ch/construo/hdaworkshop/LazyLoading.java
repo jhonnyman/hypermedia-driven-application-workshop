@@ -49,7 +49,7 @@ public class LazyLoading extends BaseView {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance getCedents() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         return cedentsTemplate.instance().data("cedents", database.listAllCedents());
     }
 
@@ -74,7 +74,7 @@ public class LazyLoading extends BaseView {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance getClaims() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         return claimsTemplate.instance().data("claims", database.listAllClaims());
     }
 
